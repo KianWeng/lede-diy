@@ -47,7 +47,7 @@ jobs:
 
       - name: Load customer configuration
         run: |
-          make defconfig
+          cd lede && make defconfig
 
       - name: Download package
         run: |
@@ -56,7 +56,7 @@ jobs:
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
 
-      - name: BUild
+      - name: Build
         run: |
           cd lede 
           echo -e "use $(nproc) thread build."
